@@ -9,7 +9,7 @@ module.exports.create = create;
 
 
 function getAll(req, res) {
-  res.send("video controller");
+  res.ok("video controller");
 };
 
 

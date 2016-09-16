@@ -8,6 +8,4 @@ module.exports = (app) => {
 
 
 router.get('/', VideoController.getAll);
-
-
 router.post('/', VideoController.create);

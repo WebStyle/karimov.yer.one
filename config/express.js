@@ -51,10 +51,17 @@ module.exports = (app, config) => {
   app.use(fileUpload());
 
   /**
+   * Join customer responses
+   */
+  var responses = glob.sync(config.root + '/app/responses/*.js');
+  responses.forEach((response) => require(response)(app));
+
+
+  /**
    * Join controllers
    */
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach((controller) => require(controller)(app));
+  var routes = glob.sync(config.root + '/app/routes/*.js');
+  routes.forEach((route) => require(route)(app));
 
 
   /**
