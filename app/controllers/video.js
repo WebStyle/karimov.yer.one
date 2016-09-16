@@ -1,24 +1,19 @@
-const express = require('express');
-const router = express.Router();
 const mongoose = require('mongoose');
 const Videos = mongoose.model('Videos');
 const fs = require('fs');
 const _ = require('lodash');
-const mimeTypes = require('../../config/videoMimeTypes');
 
 
-module.exports = (app) => {
-  app.use('/video', router);
+module.exports.getAll = getAll;
+module.exports.create = create;
+
+
+function getAll(req, res) {
+  res.send("video controller");
 };
 
 
-router.get('/', (req, res, next) => {
-  res.send("video controller")
-});
-
-
-router.post('/upload', (req, res) => {
-  console.log('req.files', req.files);
+function create(req, res) {
   var file = req.files.file;
 
   if (file.mimetype !== 'video/mp4') {
@@ -34,4 +29,4 @@ router.post('/upload', (req, res) => {
     });
   });
 
-});
+};

@@ -1,13 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const Article = mongoose.model('Article');
+module.exports.home = home;
 
 
-module.exports = (app) => app.use('/', router);
-
-
-router.get('/', (req, res, next) => {
-  res.send("Karimov.yer.one API");
-});
+function home(req, res) {
+  res.send('karimov.yer.one');
+};
 
